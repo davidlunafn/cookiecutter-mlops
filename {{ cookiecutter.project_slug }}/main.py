@@ -1,18 +1,18 @@
 from fastapi import FastAPI
-import src.config.config as config
+from src.config.config import config
 from fastapi.middleware.cors import CORSMiddleware
 from src.api.system.routes import router as system_router
 
 app = FastAPI(
   title= config.PROJECT_NAME,
-  description= "{{ cookiecutter.project_description }}" }}",
+  description= "{{ cookiecutter.project_description }}",
   summary="This is a FastAPI project template.",
   version= config.VERSION,
   terms_of_service="",
   contact={
-      "name": "",
-      "url": "",
-      "email": "",
+      "name": "fake-name",
+      "url": "https://www.fake-url.com",
+      "email": "fake-email@gmail.com",
   },
   license_info={
       "name": "Apache 2.0",
@@ -30,7 +30,8 @@ app.add_middleware(
 
 
 
-app.include_router(system_router)
+app.add_middleware(ResponseTimeMiddleware)
+app.add_middleware(ErrorHandler)
 
 
 

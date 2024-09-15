@@ -1,5 +1,7 @@
 from pydantic import BaseModel
 from .config import config
+import logging
+from logging.config import dictConfig
 
 class LogConfig(BaseModel):
     """Logging configuration to be set for the server"""
