@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 import src.config.config as config
 from fastapi.middleware.cors import CORSMiddleware
-from src.api.system import router as system_router
+from src.api.system.routes import router as system_router
 
 app = FastAPI(
   title= config.PROJECT_NAME,
