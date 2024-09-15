@@ -9,6 +9,7 @@ class Config(BaseSettings):
     PROJECT_NUMBER: str = ""
     PROJECT_ID: str = ""
     DATASET_ID: str = ""
+    VERSION: str = "0.0.1"
 
     @cached_property
     def OPENAI_API_KEY(self):
